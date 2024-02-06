@@ -11,8 +11,12 @@ import { EncryptedValue, SecureMultiplication } from "../src/contract";
 import { generateKeys, encrypt, decrypt } from "../src/he";
 
 describe("Contract", () => {
-  let sk: Field;
-  let pk: Field;
+  let pk = Field.fromJSON(
+    "15865883191285987755948956560778653675137481280032856828828401582741862742833"
+  );
+  let sk = Field.fromJSON(
+    "3404594142577636973266388389713282759042060039560572020818253215122249612915"
+  );
   const Local = Mina.LocalBlockchain();
   Mina.setActiveInstance(Local);
   const deployer = Local.testAccounts[0].privateKey;
@@ -25,12 +29,6 @@ describe("Contract", () => {
     await SecureMultiplication.compile();
   });
 
-  it("should generate keys", () => {
-    const keys = generateKeys();
-    sk = keys.sk;
-    pk = keys.pk;
-  });
-
   it("should deploy the contract", async () => {
     const initalValue = encrypt(Field(1), pk);
     const tx = await Mina.transaction({ sender }, () => {
@@ -39,7 +37,6 @@ describe("Contract", () => {
       zkApp.pk.set(pk);
       zkApp.actionState.set(Reducer.initialActionState);
       zkApp.value.set(initalValue);
-      zkApp.one.set(initalValue);
     });
     await tx.sign([deployer, privateKey]).send();
   });

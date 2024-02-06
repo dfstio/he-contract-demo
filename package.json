@@ -1,15 +1,23 @@
 {
-  "name": "he-example",
+  "name": "he-contract-demo",
   "version": "1.0",
   "author": "DFST",
   "license": "Apache-2.0",
-  "type": "module",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "node": {
+      "import": "./dist/index.js"
+    }
+  },
   "scripts": {
+    "compile": "rm -rf dist && tsc",
     "test": "jest",
     "coverage": "jest --coverage"
   },
   "dependencies": {
-    "o1js": "^0.16.0"
+    "axios": "^1.6.7",
+    "o1js": "^0.16.0",
+    "zkcloudworker": "^0.1.2"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",

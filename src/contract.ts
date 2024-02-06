@@ -19,8 +19,9 @@ export class EncryptedValue extends Struct({
   encryptedValue2: Field,
 }) {}
 
-export class SecureMultiplicator extends SmartContract {
+export class SecureMultiplication extends SmartContract {
   @state(EncryptedValue) value = State<EncryptedValue>();
+  @state(EncryptedValue) one = State<EncryptedValue>();
   @state(Field) pk = State<Field>();
   @state(Field) actionState = State<Field>();
 
@@ -43,6 +44,10 @@ export class SecureMultiplicator extends SmartContract {
   @method multiply(encryptedValue: EncryptedValue) {
     this.reducer.dispatch(encryptedValue);
     this.emitEvent("multiply", encryptedValue);
+  }
+
+  @method reset() {
+    this.value.set(this.one.getAndRequireEquals());
   }
 
   @method calculate() {
