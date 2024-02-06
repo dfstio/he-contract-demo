@@ -65,6 +65,6 @@ describe("Contract", () => {
   it("should decrypt the result", async () => {
     const result: EncryptedValue = zkApp.value.get();
     const decrypted = decrypt(result, sk);
-    expect(decrypted).toEqual(Field(24));
+    expect(decrypted.toJSON()).toEqual(Field(24).toJSON());
   });
 });

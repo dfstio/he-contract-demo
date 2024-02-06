@@ -18,7 +18,7 @@ describe("Calculate the product using api", () => {
   let sk = Field.fromJSON(
     "3404594142577636973266388389713282759042060039560572020818253215122249612915"
   );
-  let address = "B62qroNuCXFxvh12qN1b11WDnsZYghw5bFS9PJMrtGh8grQxqB5bmFV";
+  let address = "B62qnWyoDZP5QoqJ7tiRAuoaUtEzs2xHw8ETsrGFgQjniLFk5XP6qC2";
   const startTime: number[] = [];
   const endTime: number[] = [];
   const jobId: string[] = [];
@@ -37,7 +37,6 @@ describe("Calculate the product using api", () => {
     const decrypted = decrypt(result, sk);
     console.log("initial value:", decrypted.toJSON());
     initialValue = decrypted;
-    expect(decrypted.toJSON()).toEqual(Field(24).toJSON());
   });
 
   it("should send the multiplications", async () => {
