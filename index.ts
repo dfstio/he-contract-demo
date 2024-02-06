@@ -1,10 +1,10 @@
-import { Cloud, fee, initBlockchain } from "zkcloudworker";
+import { Cloud, fee, initBlockchain, accountBalanceMina } from "zkcloudworker";
 import { SecureMultiplication, EncryptedValue } from "./src/contract";
 import { PublicKey, Mina, fetchAccount, Field } from "o1js";
 
 export async function compile(cloud: Cloud, args: string[]) {
-  console.log("he: compile 5");
-  await cloud.log("he: compile 5 (cloud log)");
+  console.log("he: compile 7");
+  await cloud.log("he: compile 7 (cloud log)");
   const deployer = await cloud.getDeployer();
   console.log("deployer", deployer.toBase58());
 
@@ -34,6 +34,8 @@ export async function multiply(cloud: Cloud, args: string[]) {
     console.log("vk", vk);
     console.time("multiply");
     const zkAppAddress = PublicKey.fromBase58(args[0]);
+    const balance = await accountBalanceMina(zkAppAddress);
+    console.log("balance", balance);
     const zkApp = new SecureMultiplication(zkAppAddress);
     const sender = deployer.toPublicKey();
     const encryptedValue = new EncryptedValue({
@@ -95,6 +97,8 @@ export async function calculate(cloud: Cloud, args: string[]) {
     console.log("vk", vk);
     console.time("calculated");
     const zkAppAddress = PublicKey.fromBase58(args[0]);
+    const balance = await accountBalanceMina(zkAppAddress);
+    console.log("balance", balance);
     const zkApp = new SecureMultiplication(zkAppAddress);
     const sender = deployer.toPublicKey();
 
@@ -153,6 +157,8 @@ export async function reset(cloud: Cloud, args: string[]) {
     console.log("vk", vk);
     console.time("reset");
     const zkAppAddress = PublicKey.fromBase58(args[0]);
+    const balance = await accountBalanceMina(zkAppAddress);
+    console.log("balance", balance);
     const zkApp = new SecureMultiplication(zkAppAddress);
     const sender = deployer.toPublicKey();
 

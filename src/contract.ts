@@ -12,7 +12,7 @@ import {
   UInt8,
 } from "o1js";
 
-export const MAX_USERS = 10;
+export const MAX_USERS = 6;
 
 export class EncryptedValue extends Struct({
   encryptedValue1: Field,
@@ -74,5 +74,6 @@ export class SecureMultiplication extends SmartContract {
         { maxTransactionsWithActions: MAX_USERS }
       );
     this.value.set(newValue);
+    this.actionState.set(newActionState);
   }
 }
