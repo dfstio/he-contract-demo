@@ -1,4 +1,4 @@
-# he-contract-demo
+# zkCloudWorker : HE encryption demo
 
 Homomorphic encryption demo contract
 
