@@ -88,10 +88,11 @@ describe("Calculate the product using api", () => {
   it(`should wait for tx to be included into block`, async () => {
     expect(hash.length).toBeGreaterThan(0);
     if (hash.length === 0) return;
-    console.log("Waiting for tx to be included into block...");
+    console.log("Waiting for txs to be included into block...");
     console.time("txs included into block");
     let remainedTx = hash.length;
     while (remainedTx > 0) {
+      await sleep(1000 * 30);
       for (const h of hash) {
         const result = await checkZkappTransaction(h);
         if (result.success) {
@@ -99,14 +100,11 @@ describe("Calculate the product using api", () => {
           remainedTx--;
         }
       }
-      await sleep(1000 * 30);
     }
     console.timeEnd("txs included into block");
   });
 
   it("should calculate the result", async () => {
-    expect(hash.length).toBeGreaterThan(0);
-    if (hash.length === 0) return;
     const apiresult = await api.createJob({
       name: "he-contract-demo",
       task: "calculate",
@@ -150,12 +148,12 @@ describe("Calculate the product using api", () => {
     console.time("calculate tx included into block");
     let remainedTx = 1;
     while (remainedTx > 0) {
+      await sleep(1000 * 30);
       const result = await checkZkappTransaction(calculateHash);
       if (result.success) {
         console.log("tx included into block:", calculateHash);
         remainedTx--;
       }
-      await sleep(1000 * 30);
     }
     console.timeEnd("calculate tx included into block");
   });
@@ -217,12 +215,12 @@ describe("Calculate the product using api", () => {
     console.time("reset tx included into block");
     let remainedTx = 1;
     while (remainedTx > 0) {
+      await sleep(1000 * 30);
       const result = await checkZkappTransaction(calculateHash);
       if (result.success) {
         console.log("tx included into block:", calculateHash);
         remainedTx--;
       }
-      await sleep(1000 * 30);
     }
     console.timeEnd("reset tx included into block");
   });
