@@ -11,6 +11,7 @@
   },
   "scripts": {
     "compile": "rm -rf dist && tsc",
+    "build": "rm -rf dist && tsc && rm he-contract-demo.zip && 7z a -tzip -r -stl -m0=Copy he-contract-demo.zip dist package.json node_modules",
     "test": "jest",
     "coverage": "jest --coverage"
   },

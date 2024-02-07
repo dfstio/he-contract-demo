@@ -30,41 +30,41 @@ yarn test tests/api.test
 
 ```
 he-contract-demo % yarn test deploy.zip
-[10:58:29 PM] api call result {
+[4:18:44 PM] api call result {
   success: true,
-  jobId: '6459034946.1707245908724.bvs4hnb657s7dr9xjiaadp1s94xpz27q',
+  jobId: '6459034946.1707308322921.ue4xqaypzcwe6fassir48lt822wjra3f',
   error: undefined
 }
-[11:05:01 PM] Time spent to deploy the code: 6 min (391930 ms)
-[11:05:01 PM] api call result {
+[4:22:08 PM] Time spent to deploy the code: 3 min (204540 ms)
+[4:22:08 PM] api call result {
   success: true,
   error: undefined,
   result: {
     task: 'deploy',
     jobData: [],
     args: [],
-    timeFinished: 1707246298906,
-    timeCreated: 1707245908724,
-    jobId: '6459034946.1707245908724.bvs4hnb657s7dr9xjiaadp1s94xpz27q',
+    timeFinished: 1707308508260,
+    timeCreated: 1707308322921,
+    jobId: '6459034946.1707308322921.ue4xqaypzcwe6fassir48lt822wjra3f',
     result: 'deployed',
     jobName: 'he-contract-demo',
     developer: '@dfst',
     jobStatus: 'finished',
-    billedDuration: 386924,
+    billedDuration: 182385,
     id: '6459034946',
-    timeStarted: 1707245911988
+    timeStarted: 1707308325881
   }
 }
  PASS  tests/deploy.zip.test.ts
   Deploy zip file with code
-    ✓ should deploy code to zkCloudWorker (5246 ms)
-    ✓ should get the result of the deployment (391910 ms)
+    ✓ should deploy code to zkCloudWorker (5375 ms)
+    ✓ should get the result of the deployment (204519 ms)
 
 Test Suites: 1 passed, 1 total
 Tests:       2 passed, 2 total
 Snapshots:   0 total
-Time:        398.118 s
-Ran all test suites matching /deploy.zip/i.
+Time:        210.863 s
+Ran all test suites matching /deploy.zip/i
 ```
 
 ### Running the test

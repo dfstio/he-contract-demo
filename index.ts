@@ -1,10 +1,21 @@
-import { Cloud, fee, initBlockchain, accountBalanceMina } from "zkcloudworker";
+import {
+  Cloud,
+  fee,
+  initBlockchain,
+  accountBalanceMina,
+  sleep,
+} from "zkcloudworker";
 import { SecureMultiplication, EncryptedValue } from "./src/contract";
-import { PublicKey, Mina, fetchAccount, Field } from "o1js";
+import {
+  PublicKey,
+  Mina,
+  fetchAccount as o1js_fetchAccount,
+  Field,
+} from "o1js";
 
 export async function compile(cloud: Cloud, args: string[]) {
-  console.log("he: compile 7");
-  await cloud.log("he: compile 7 (cloud log)");
+  console.log("he: compile 8");
+  await cloud.log("he: compile 8 (cloud log)");
   const deployer = await cloud.getDeployer();
   console.log("deployer", deployer.toBase58());
 
@@ -199,4 +210,21 @@ export async function reset(cloud: Cloud, args: string[]) {
       2
     );
   }
+}
+
+async function fetchAccount(args: { publicKey: PublicKey }) {
+  const timeout = 1000 * 60 * 5; // 5 minutes
+  const startTime = Date.now();
+  let result = { account: undefined };
+  while (Date.now() - startTime < timeout) {
+    try {
+      const result = await o1js_fetchAccount(args);
+      if (result.account !== undefined) return result;
+    } catch (error) {
+      console.error("Error in fetchAccount:", error);
+    }
+    await sleep(1000 * 10);
+  }
+  console.error("Timeout in fetchAccount");
+  return result;
 }
