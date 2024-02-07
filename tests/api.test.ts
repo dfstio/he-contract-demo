@@ -251,8 +251,8 @@ async function fetchAccount(args: { publicKey: string }) {
       if (result.account !== undefined) return result;
     } catch (error) {
       console.error("Error in fetchAccount:", error);
-      await sleep(1000 * 10);
     }
+    await sleep(1000 * 10);
   }
   console.error("Timeout in fetchAccount");
   return result;
