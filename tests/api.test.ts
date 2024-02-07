@@ -5,7 +5,12 @@ import {
   sleep,
   initBlockchain,
 } from "zkcloudworker";
-import { Field, PublicKey, checkZkappTransaction, fetchAccount } from "o1js";
+import {
+  Field,
+  PublicKey,
+  checkZkappTransaction as o1js_checkZkappTransaction,
+  fetchAccount as o1js_fetchAccount,
+} from "o1js";
 import { EncryptedValue, SecureMultiplication } from "../src/contract";
 import { encrypt, decrypt } from "../src/he";
 
@@ -225,3 +230,30 @@ describe("Calculate the product using api", () => {
     console.timeEnd("reset tx included into block");
   });
 });
+
+async function checkZkappTransaction(hash: string) {
+  try {
+    const result = await o1js_checkZkappTransaction(hash);
+    return result;
+  } catch (error) {
+    console.error("Error in checkZkappTransaction:", error);
+    return { success: false };
+  }
+}
+
+async function fetchAccount(args: { publicKey: string }) {
+  const timeout = 1000 * 60 * 5; // 5 minutes
+  const startTime = Date.now();
+  let result = { account: undefined };
+  while (Date.now() - startTime < timeout) {
+    try {
+      const result = await o1js_fetchAccount(args);
+      if (result.account !== undefined) return result;
+    } catch (error) {
+      console.error("Error in fetchAccount:", error);
+      await sleep(1000 * 10);
+    }
+  }
+  console.error("Timeout in fetchAccount");
+  return result;
+}
