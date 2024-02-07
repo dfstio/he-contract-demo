@@ -229,6 +229,19 @@ describe("Calculate the product using api", () => {
     }
     console.timeEnd("reset tx included into block");
   });
+
+  it("should decrypt the reset result", async () => {
+    expect(calculateHash).not.toBe("");
+    if (calculateHash === "") return;
+
+    const publicKey = PublicKey.fromBase58(address);
+    await fetchAccount({ publicKey: address });
+    const zkApp = new SecureMultiplication(publicKey);
+    const result: EncryptedValue = zkApp.value.get();
+    const decrypted = decrypt(result, sk);
+    console.log("decrypted:", decrypted.toJSON());
+    expect(decrypted.toJSON()).toEqual(Field(1).toJSON());
+  });
 });
 
 async function checkZkappTransaction(hash: string) {
@@ -247,13 +260,16 @@ async function fetchAccount(args: { publicKey: string }) {
   let result = { account: undefined };
   while (Date.now() - startTime < timeout) {
     try {
-      const result = await o1js_fetchAccount(args);
+      const result = await o1js_fetchAccount({
+        publicKey: PublicKey.fromBase58(args.publicKey),
+      });
       if (result.account !== undefined) return result;
+      console.log("Cannot fetch account", args.publicKey, result);
     } catch (error) {
-      console.error("Error in fetchAccount:", error);
+      console.log("Error in fetchAccount:", error);
     }
     await sleep(1000 * 10);
   }
-  console.error("Timeout in fetchAccount");
+  console.log("Timeout in fetchAccount");
   return result;
 }

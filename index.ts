@@ -6,12 +6,7 @@ import {
   sleep,
 } from "zkcloudworker";
 import { SecureMultiplication, EncryptedValue } from "./src/contract";
-import {
-  PublicKey,
-  Mina,
-  fetchAccount as o1js_fetchAccount,
-  Field,
-} from "o1js";
+import { PublicKey, Mina, fetchAccount, Field } from "o1js";
 
 export async function compile(cloud: Cloud, args: string[]) {
   console.log("he: compile 8");
@@ -45,16 +40,16 @@ export async function multiply(cloud: Cloud, args: string[]) {
     console.log("vk", vk);
     console.time("multiply");
     const zkAppAddress = PublicKey.fromBase58(args[0]);
-    const balance = await accountBalanceMina(zkAppAddress);
-    console.log("balance", balance);
+    //const balance = await accountBalanceMina(zkAppAddress);
+    //console.log("balance", balance);
     const zkApp = new SecureMultiplication(zkAppAddress);
     const sender = deployer.toPublicKey();
     const encryptedValue = new EncryptedValue({
       encryptedValue1: Field.fromJSON(args[1]),
       encryptedValue2: Field.fromJSON(args[2]),
     });
-    await fetchAccount({ publicKey: zkAppAddress });
-    await fetchAccount({ publicKey: sender });
+    await fetchMinaAccount({ publicKey: zkAppAddress });
+    await fetchMinaAccount({ publicKey: sender });
 
     const tx = await Mina.transaction(
       { sender, fee: await fee(), memo: "he-demo" },
@@ -108,13 +103,13 @@ export async function calculate(cloud: Cloud, args: string[]) {
     console.log("vk", vk);
     console.time("calculated");
     const zkAppAddress = PublicKey.fromBase58(args[0]);
-    const balance = await accountBalanceMina(zkAppAddress);
-    console.log("balance", balance);
+    //const balance = await accountBalanceMina(zkAppAddress);
+    //console.log("balance", balance);
     const zkApp = new SecureMultiplication(zkAppAddress);
     const sender = deployer.toPublicKey();
 
-    await fetchAccount({ publicKey: zkAppAddress });
-    await fetchAccount({ publicKey: sender });
+    await fetchMinaAccount({ publicKey: zkAppAddress });
+    await fetchMinaAccount({ publicKey: sender });
 
     const tx = await Mina.transaction(
       { sender, fee: await fee(), memo: "he-demo" },
@@ -168,13 +163,13 @@ export async function reset(cloud: Cloud, args: string[]) {
     console.log("vk", vk);
     console.time("reset");
     const zkAppAddress = PublicKey.fromBase58(args[0]);
-    const balance = await accountBalanceMina(zkAppAddress);
-    console.log("balance", balance);
+    //const balance = await accountBalanceMina(zkAppAddress);
+    //console.log("balance", balance);
     const zkApp = new SecureMultiplication(zkAppAddress);
     const sender = deployer.toPublicKey();
 
-    await fetchAccount({ publicKey: zkAppAddress });
-    await fetchAccount({ publicKey: sender });
+    await fetchMinaAccount({ publicKey: zkAppAddress });
+    await fetchMinaAccount({ publicKey: sender });
 
     const tx = await Mina.transaction(
       { sender, fee: await fee(), memo: "he-demo" },
@@ -212,19 +207,20 @@ export async function reset(cloud: Cloud, args: string[]) {
   }
 }
 
-async function fetchAccount(args: { publicKey: PublicKey }) {
-  const timeout = 1000 * 60 * 5; // 5 minutes
+async function fetchMinaAccount(args: { publicKey: PublicKey }): Promise<void> {
+  const timeout = 1000 * 60 * 3; // 3 minutes
   const startTime = Date.now();
-  let result = { account: undefined };
   while (Date.now() - startTime < timeout) {
     try {
-      const result = await o1js_fetchAccount(args);
-      if (result.account !== undefined) return result;
+      const result = await fetchAccount({
+        publicKey: args.publicKey.toBase58(),
+      });
+      if (result.account !== undefined) return;
+      console.error("Cannot fetch account", args.publicKey.toBase58(), result);
     } catch (error) {
-      console.error("Error in fetchAccount:", error);
+      console.error("Error in fetchMinaAccount:", error);
     }
-    await sleep(1000 * 10);
+    await sleep(1000 * 30);
   }
-  console.error("Timeout in fetchAccount");
-  return result;
+  console.error("Timeout in fetchMinaAccount");
 }
