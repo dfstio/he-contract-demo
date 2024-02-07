@@ -71,24 +71,24 @@ Ran all test suites matching /deploy.zip/i.
 
 ```
 he-contract-demo % yarn test tests/api.test
-[11:56:13 PM] initial value: 1
-[11:56:18 PM] api call result {
+[1:20:32 PM] initial value: 1
+[1:20:34 PM] api call result {
   success: true,
-  jobId: '6459034946.1707249377875.77qfb9n4rbxatmrevqw4y0vhamhwptv3',
+  jobId: '6459034946.1707297633170.2icxmzm35vakeq4wyhvlopjl7whz19tn',
   error: undefined
 }
-[11:56:20 PM] api call result {
+[1:20:35 PM] api call result {
   success: true,
-  jobId: '6459034946.1707249379358.op9i7otm1h91gxjx6kqrml13jv25c5m4',
+  jobId: '6459034946.1707297634644.g8ltrnq77y78qczvlkhxtmj6m8k8ehk4',
   error: undefined
 }
-[11:56:21 PM] api call result {
+[1:20:36 PM] api call result {
   success: true,
-  jobId: '6459034946.1707249380852.k9cvh061w0xwynuvdi6s64upagt9wi32',
+  jobId: '6459034946.1707297635975.u4k7d12t52wif4t48d6i0oe5v5js0kgj',
   error: undefined
 }
-[11:57:03 PM] Time spent to send tx: 44 sec (44017 ms)
-[11:57:03 PM] api call result {
+[1:20:57 PM] Time spent to send tx: 23 sec (23125 ms)
+[1:20:57 PM] api call result {
   success: true,
   error: undefined,
   result: {
@@ -96,27 +96,27 @@ he-contract-demo % yarn test tests/api.test
     jobData: [],
     args: [
       'B62qnWyoDZP5QoqJ7tiRAuoaUtEzs2xHw8ETsrGFgQjniLFk5XP6qC2',
-      '10102747884567087519086287851974294953328101102833254438629745743257721266734',
-      '1502963227506323280137075057006637496841123580206746699493518655054806084814'
+      '8635738623507908486315904796205917662935774519434184677074920042065363884413',
+      '18116288274483629144178441170835763902035071541845868939382901244943231353885'
     ],
-    timeFinished: 1707249419210,
-    timeCreated: 1707249377875,
-    jobId: '6459034946.1707249377875.77qfb9n4rbxatmrevqw4y0vhamhwptv3',
+    timeFinished: 1707297652775,
+    timeCreated: 1707297633170,
+    jobId: '6459034946.1707297633170.2icxmzm35vakeq4wyhvlopjl7whz19tn',
     result: '{\n' +
-      '  "hash": "5JtkCm2nbCZr12svSFmLQn2L88DaoVmc8RVprYwZvcW6Z5frzGkE",\n' +
+      '  "hash": "5JtWUkw42Pt7psnb4aCNXrF86AziginLdRHXUFoMUPz1qCzR9f1N",\n' +
       '  "success": true,\n' +
-      '  "duration": 35896\n' +
+      '  "duration": 19205\n' +
       '}',
     jobName: 'he-contract-demo',
     developer: 'DFST',
     jobStatus: 'finished',
-    billedDuration: 38173,
+    billedDuration: 19310,
     id: '6459034946',
-    timeStarted: 1707249381116
+    timeStarted: 1707297633501
   }
 }
-[11:57:03 PM] Time spent to send tx: 42 sec (42790 ms)
-[11:57:03 PM] api call result {
+[1:21:18 PM] Time spent to send tx: 42 sec (42467 ms)
+[1:21:18 PM] api call result {
   success: true,
   error: undefined,
   result: {
@@ -124,27 +124,27 @@ he-contract-demo % yarn test tests/api.test
     jobData: [],
     args: [
       'B62qnWyoDZP5QoqJ7tiRAuoaUtEzs2xHw8ETsrGFgQjniLFk5XP6qC2',
-      '25501751388855851865993485014326291859492243817260836928810414572356375575190',
-      '18130764016082612263123167936467409003712425776568820381368064876717642602148'
+      '25820107399018033177336520984041809019136842797471389793216778427828881288403',
+      '5359760224240346412239448499435700908340413450690242795028300501798187570928'
     ],
-    timeFinished: 1707249415888,
-    timeCreated: 1707249379358,
-    jobId: '6459034946.1707249379358.op9i7otm1h91gxjx6kqrml13jv25c5m4',
+    timeFinished: 1707297676024,
+    timeCreated: 1707297634644,
+    jobId: '6459034946.1707297634644.g8ltrnq77y78qczvlkhxtmj6m8k8ehk4',
     result: '{\n' +
-      '  "hash": "5Jtz7q4bx9xBhNgTN2c9vwivc7WhMhVvVBNJGh88KB1reqdUwS7Z",\n' +
+      '  "hash": "5JugZzWDk3wfggK5HJiWPgqia2xa251K8VJiNYxvXYeJ7KtjgjMt",\n' +
       '  "success": true,\n' +
-      '  "duration": 31851\n' +
+      '  "duration": 36037\n' +
       '}',
     jobName: 'he-contract-demo',
     developer: 'DFST',
     jobStatus: 'finished',
-    billedDuration: 33895,
+    billedDuration: 38213,
     id: '6459034946',
-    timeStarted: 1707249382064
+    timeStarted: 1707297637878
   }
 }
-[11:57:03 PM] Time spent to send tx: 41 sec (41911 ms)
-[11:57:03 PM] api call result {
+[1:21:18 PM] Time spent to send tx: 41 sec (41452 ms)
+[1:21:18 PM] api call result {
   success: true,
   error: undefined,
   result: {
@@ -152,89 +152,113 @@ he-contract-demo % yarn test tests/api.test
     jobData: [],
     args: [
       'B62qnWyoDZP5QoqJ7tiRAuoaUtEzs2xHw8ETsrGFgQjniLFk5XP6qC2',
-      '17734041084796921079042544809027334305681599334316592038167980231123812505442',
-      '22304018295170339269684751491436280226841825622236725431061972117115909620099'
+      '7298168851295970608446869902005370114404334709159395404569419159928894988941',
+      '1870342696382906199486137401786672159219404622525450490085166528200094667328'
     ],
-    timeFinished: 1707249420758,
-    timeCreated: 1707249380852,
-    jobId: '6459034946.1707249380852.k9cvh061w0xwynuvdi6s64upagt9wi32',
+    timeFinished: 1707297676731,
+    timeCreated: 1707297635975,
+    jobId: '6459034946.1707297635975.u4k7d12t52wif4t48d6i0oe5v5js0kgj',
     result: '{\n' +
-      '  "hash": "5JvH5EiFmU9TioopKvSbyLUo1kTNZ8GHEznyd6erLDeY3KUgRTge",\n' +
+      '  "hash": "5Jts53PzUFoLb7KumSpLfaBhCkCdRkKs6pW8JEe41iqnCfevpCbm",\n' +
       '  "success": true,\n' +
-      '  "duration": 35266\n' +
+      '  "duration": 35538\n' +
       '}',
     jobName: 'he-contract-demo',
     developer: 'DFST',
     jobStatus: 'finished',
-    billedDuration: 37146,
+    billedDuration: 37784,
     id: '6459034946',
-    timeStarted: 1707249383684
+    timeStarted: 1707297639020
   }
 }
-[12:14:48 AM] api call result {
+[1:21:18 PM] Waiting for txs to be included into block...
+[1:22:20 PM] tx included into block: 5JtWUkw42Pt7psnb4aCNXrF86AziginLdRHXUFoMUPz1qCzR9f1N
+[1:22:20 PM] tx included into block: 5JugZzWDk3wfggK5HJiWPgqia2xa251K8VJiNYxvXYeJ7KtjgjMt
+[1:22:20 PM] tx included into block: 5Jts53PzUFoLb7KumSpLfaBhCkCdRkKs6pW8JEe41iqnCfevpCbm
+[1:22:20 PM] txs included into block: 1:02.311 (m:ss.mmm)
+[1:22:22 PM] api call result {
   success: true,
-  jobId: '6459034946.1707250487571.qoo8o3ueufhh8di333nkn1naxzh57mg1',
+  jobId: '6459034946.1707297741101.1d5yryr0i33ixgy1bnih7bs3npsutgz3',
   error: undefined
 }
-[12:15:30 AM] Time spent to calculate the result: 41 sec (41560 ms)
-[12:15:30 AM] api call result {
+[1:23:02 PM] Time spent to calculate the result: 40 sec (40881 ms)
+[1:23:02 PM] api call result {
   success: true,
   error: undefined,
   result: {
     task: 'calculate',
     jobData: [],
     args: [ 'B62qnWyoDZP5QoqJ7tiRAuoaUtEzs2xHw8ETsrGFgQjniLFk5XP6qC2' ],
-    timeFinished: 1707250530266,
-    timeCreated: 1707250487571,
-    jobId: '6459034946.1707250487571.qoo8o3ueufhh8di333nkn1naxzh57mg1',
+    timeFinished: 1707297764370,
+    timeCreated: 1707297741101,
+    jobId: '6459034946.1707297741101.1d5yryr0i33ixgy1bnih7bs3npsutgz3',
     result: '{\n' +
-      '  "hash": "5JvJ1XPMJ5pHAHbxthBr8X1T3BUuUXrzwuiX5va4JQv93aa3YyWX",\n' +
+      '  "hash": "5Ju8KT9icAoY5hBw3maxNPgffwpxWqa6ZkEWQ9WwofsUbZbWUhjy",\n' +
       '  "success": true,\n' +
-      '  "duration": 37137\n' +
+      '  "duration": 23100\n' +
       '}',
     jobName: 'he-contract-demo',
     developer: 'DFST',
     jobStatus: 'finished',
-    billedDuration: 39594,
+    billedDuration: 23148,
     id: '6459034946',
-    timeStarted: 1707250490746
+    timeStarted: 1707297741254
   }
 }
-[12:15:30 AM] Waiting for tx to be included into block...
-[12:16:31 AM] tx included into block: 5JvJ1XPMJ5pHAHbxthBr8X1T3BUuUXrzwuiX5va4JQv93aa3YyWX
-[12:17:01 AM] calculate tx included into block: 1:31.300 (m:ss.mmm)
-[12:17:02 AM] decrypted: 24
-[12:17:04 AM] api call result {
+[1:23:02 PM] Waiting for tx to be included into block...
+[1:25:35 PM] tx included into block: 5Ju8KT9icAoY5hBw3maxNPgffwpxWqa6ZkEWQ9WwofsUbZbWUhjy
+[1:25:35 PM] calculate tx included into block: 2:32.240 (m:ss.mmm)
+[1:28:06 PM] decrypted: 24
+[1:28:07 PM] api call result {
   success: true,
-  jobId: '6459034946.1707250623420.5i3dk966u50csjjauj0fxgb6d79rfzlj',
+  jobId: '6459034946.1707298086755.0oiatsw7y72y0e2s4hni11gld3x1dk9d',
   error: undefined
 }
-[12:17:45 AM] Time spent to reset the value: 41 sec (41560 ms)
-[12:17:45 AM] api call result {
+[1:28:49 PM] Time spent to reset the value: 40 sec (40881 ms)
+[1:28:49 PM] api call result {
   success: true,
   error: undefined,
   result: {
     task: 'reset',
     jobData: [],
     args: [ 'B62qnWyoDZP5QoqJ7tiRAuoaUtEzs2xHw8ETsrGFgQjniLFk5XP6qC2' ],
-    timeFinished: 1707250646046,
-    timeCreated: 1707250623420,
-    jobId: '6459034946.1707250623420.5i3dk966u50csjjauj0fxgb6d79rfzlj',
+    timeFinished: 1707298109487,
+    timeCreated: 1707298086755,
+    jobId: '6459034946.1707298086755.0oiatsw7y72y0e2s4hni11gld3x1dk9d',
     result: '{\n' +
-      '  "hash": "5Jtrg48NxYVXRLHsnBAVcbmAsPsJ2keLy7MajMEpBNu1hXuQwSPM",\n' +
+      '  "hash": "5Juj7iMb4axLv8Nsaw8dgrY2tuTXKhVpfb9GvXPANEUrkoLZctRw",\n' +
       '  "success": true,\n' +
-      '  "duration": 22339\n' +
+      '  "duration": 22470\n' +
       '}',
     jobName: 'he-contract-demo',
     developer: 'DFST',
     jobStatus: 'finished',
-    billedDuration: 22526,
+    billedDuration: 22583,
     id: '6459034946',
-    timeStarted: 1707250623645
+    timeStarted: 1707298086954
   }
 }
-[12:17:45 AM] Waiting for tx to be included into block...
-[12:19:17 AM] tx included into block: 5Jtrg48NxYVXRLHsnBAVcbmAsPsJ2keLy7MajMEpBNu1hXuQwSPM
-[12:19:47 AM] reset tx included into block: 2:02.277 (m:ss.mmm)
+[1:28:49 PM] Waiting for tx to be included into block...
+[1:37:25 PM] tx included into block: 5Juj7iMb4axLv8Nsaw8dgrY2tuTXKhVpfb9GvXPANEUrkoLZctRw
+[1:37:25 PM] reset tx included into block: 8:36.104 (m:ss.mmm)
+ PASS  tests/api.test.ts
+  Calculate the product using api
+    ✓ should get initial value (372 ms)
+    ✓ should send the multiplications (4276 ms)
+    ✓ should get the tx hashes (41451 ms)
+    ✓ should wait for tx to be included into block (62313 ms)
+    ✓ should calculate the result (1379 ms)
+    ✓ should get the result of the calculation (40883 ms)
+    ✓ should wait for tx to be included into block (152281 ms)
+    ✓ should decrypt the result (151073 ms)
+    ✓ should reset the value (1441 ms)
+    ✓ should get the result of the reset job (41277 ms)
+    ✓ should wait for tx to be included into block (516111 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       11 passed, 11 total
+Snapshots:   0 total
+Time:        1014.039 s
+Ran all test suites matching /tests\/api.test/i.
 
 ```
